@@ -136,49 +136,23 @@ body {
 .footer {
   margin-top: auto;
 }
-/* Add these rules to your main stylesheet (or create this file and include it). */
-/* 1) Ensure the page is a column-flex layout so footer can be pushed to the bottom */
+
+/* sticky-footer using CSS Grid (recommended) */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Make the body a column flex container so the last child (footer) can be pushed down */
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* full viewport height */
+  display: grid;
+  grid-template-rows: 1fr auto; /* main content grows, footer is auto height */
+  min-height: 100vh;
 }
 
-/* Let the main content area grow and take available vertical space.
-   These selectors cover common patterns; if you already have a <main> element,
-   the rule will apply automatically. If your pages use a different wrapper
-   for page content, add that class name here. */
-main,
-.main,
-.content,
-.site-content,
-.page {
-  flex: 1 0 auto;
+/* make sure your footer (direct footer element) sits in the last row */
+body > footer {
+  grid-row: 2;
 }
-
-/* Ensure footer stays at the bottom when content is short */
-.footer {
-  margin-top: auto; /* pushes footer to bottom inside flex column */
-  /* keep any existing footer styles below this line (background, padding, etc.) */
-}
-
-/* Keep the WhatsApp floating button independent and fixed on the viewport
-   so it won't be affected by the layout change (some pages have a whatsapp anchor). */
-.whatsapp_float {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 9999;
-  /* optional: make size consistent */
-  width: 48px;
-  height: 48px;
-  display: block;
-}
-
+/* Add these rules to your main stylesheet (or create this file and include it). */
+/* 1) Ensure the page is a column-flex layout so footer can be pushed to the bottom */
