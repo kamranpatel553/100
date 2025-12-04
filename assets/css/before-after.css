@@ -142,3 +142,10 @@ body {
         font-size: 2rem;
       }
     }
+/* Make the works grid exactly 2 columns on wider screens (desktop) */
+@media (min-width: 992px) {
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px;
+  }
+}
